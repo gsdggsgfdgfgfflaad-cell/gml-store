@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GML Marketplace</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Segoe UI;
+}
+
+body{
+  background:#070000;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* BACKGROUND */
+canvas{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:-2;
+}
+
+/* TOP BAR */
+nav{
+  display:flex;
+  justify-content:space-between;
+  padding:20px 60px;
+  align-items:center;
+}
+
+nav h1{
+  color:red;
+  font-size:24px;
+}
+
+nav a{
+  background:red;
+  padding:10px 15px;
+  border-radius:8px;
+  color:white;
+  text-decoration:none;
+}
+
+/* HERO */
+.hero{
+  padding:100px 60px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.hero h2{
+  font-size:65px;
+  line-height:1.1;
+}
+
+.hero span{
+  color:red;
+}
+
+.hero p{
+  margin-top:15px;
+  color:#aaa;
+}
+
+.hero-box{
+  background:rgba(255,0,0,0.05);
+  border:1px solid rgba(255,0,0,0.2);
+  padding:25px;
+  border-radius:15px;
+}
+
+/* SECTION TITLE */
+.section-title{
+  padding:0 60px;
+  font-size:22px;
+  color:#aaa;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:25px;
+  padding:50px 60px;
+}
+
+/* CARD */
+.card{
+  background:rgba(255,0,0,0.05);
+  border:1px solid rgba(255,0,0,0.2);
+  border-radius:15px;
+  overflow:hidden;
+  transition:.3s;
+  height:460px;
+  display:flex;
+  flex-direction:column;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 0 30px red;
+}
+
+.card img{
+  width:100%;
+  height:230px;
+  object-fit:cover;
+}
+
+.content{
+  padding:15px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  flex:1;
+}
+
+.price{
+  color:red;
+  font-size:20px;
+}
+
+.old{
+  text-decoration:line-through;
+  color:#777;
+  font-size:13px;
+  margin-left:6px;
+}
+
+.badge{
+  display:inline-block;
+  margin-top:5px;
+  padding:4px 10px;
+  border:1px solid red;
+  border-radius:20px;
+  font-size:12px;
+}
+
+/* BUTTON */
+button{
+  margin-top:15px;
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:10px;
+  background:red;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.3s;
+}
+
+button:hover{
+  opacity:0.8;
+}
+
+/* INFO BAR */
+.info{
+  display:flex;
+  justify-content:space-around;
+  padding:40px;
+  color:#aaa;
+  font-size:13px;
+  border-top:1px solid #220000;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="bg"></canvas>
+
+<nav>
+  <h1>GML Store</h1>
+  <a href="https://discord.gg/KX2shDkjKp" target="_blank">Join Discord</a>
+</nav>
+
+<section class="hero">
+  <div>
+    <h2>Premium <span>FiveM</span><br>Marketplace</h2>
+    <p>Instant delivery via Discord ticket system.</p>
+  </div>
+
+  <div class="hero-box">
+    ⚡ Fast Delivery<br>
+    🔐 Secure Orders<br>
+    🔐 Gemelo Protection ON<br>
+    🛠 24/7 Support
+  </div>
+</section>
+
+<div class="section-title">Featured Products</div>
+
+<section class="grid">
+
+  <div class="card">
+    <img src="https://r2.fivemanage.com/N2yv9eU3yUYJTgpoZhvm7/redENGINE-Spoofer.png">
+    <div class="content">
+      <div>
+        <h3>redENGINE Spoofer</h3>
+        <div class="price">39,99$ <span class="old">49,99$</span></div>
+        <div class="badge">Limited Stock</div>
+      </div>
+      <button onclick="ticket('redENGINE Spoofer','39.99$')">ABRIR TICKET</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://r2.fivemanage.com/N2yv9eU3yUYJTgpoZhvm7/cab0f45e-ff90-432e-a381-a8df2fb70829.jpg">
+    <div class="content">
+      <div>
+        <h3>Cuentas Pack</h3>
+        <div class="price">5$</div>
+        <div class="badge">Hot Deal</div>
+      </div>
+      <button onclick="ticket('Cuentas Pack','5$')">ABRIR TICKET</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://r2.fivemanage.com/N2yv9eU3yUYJTgpoZhvm7/c2df1ded-9f77-4a8c-b166-653de0e740b7.png">
+    <div class="content">
+      <div>
+        <h3>Shark Menu</h3>
+        <div class="price">50$</div>
+        <div class="badge">Pro Service</div>
+      </div>
+      <button onclick="ticket('Shark Menu','50$')">ABRIR TICKET</button>
+    </div>
+  </div>
+
+    <div class="card">
+    <img src="https://r2.fivemanage.com/N2yv9eU3yUYJTgpoZhvm7/gen_spoofer.jpg">
+    <div class="content">
+      <div>
+        <h3>Tiago Spoffer</h3>
+        <div class="price">For This Price On Discord</div>
+        <div class="badge">Pro Service</div>
+      </div>
+      <button onclick="ticket('Tiago Spoffer','Ticket')">ABRIR TICKET</button>
+    </div>
+  </div>
+
+</section>
+
+<div class="info">
+  <div>⚡ Instant Tickets</div>
+  <div>🔐 Discord Verified Orders</div>
+  <div>🛠 Support 24/7</div>
+  <div>🔐 Gemelo Protection ON</div>
+</div>
+
+<script>
+
+function ticket(product, price){
+
+  const msg = `
+🎟 NEW ORDER REQUEST
+
+Product: ${product}
+Price: ${price}
+
+Please open ticket for purchase.
+`;
+
+  navigator.clipboard.writeText(msg);
+
+  window.open("https://discord.gg/KX2shDkjKp","_blank");
+
+  alert("Copied → paste in Discord tickets");
+}
+
+/* BACKGROUND ANIMATION */
+const canvas=document.getElementById("bg");
+const ctx=canvas.getContext("2d");
+
+canvas.width=innerWidth;
+canvas.height=innerHeight;
+
+let p=[];
+
+for(let i=0;i<120;i++){
+  p.push({
+    x:Math.random()*canvas.width,
+    y:Math.random()*canvas.height,
+    s:Math.random()*2,
+    dx:(Math.random()-0.5)*0.7,
+    dy:(Math.random()-0.5)*0.7
+  });
+}
+
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle="red";
+
+  p.forEach(pt=>{
+    pt.x+=pt.dx;
+    pt.y+=pt.dy;
+
+    if(pt.x<0||pt.x>canvas.width)pt.dx*=-1;
+    if(pt.y<0||pt.y>canvas.height)pt.dy*=-1;
+
+    ctx.beginPath();
+    ctx.arc(pt.x,pt.y,pt.s,0,Math.PI*2);
+    ctx.fill();
+  });
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+
+</script>
+
+</body>
+</html>
