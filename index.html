@@ -3,7 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GML Marketplace</title>
+
+<title>GML Store | FiveM Marketplace</title>
+
+<meta name="description" content="GML Store - FiveM marketplace for scripts, tools and products. Instant delivery via Discord ticket system.">
+<meta name="keywords" content="GML Store, FiveM store, GTA V scripts, FiveM marketplace, redENGINE, Shark Menu">
+
+<meta property="og:title" content="GML Store">
+<meta property="og:description" content="FiveM Marketplace - Instant delivery via Discord">
+<meta property="og:url" content="https://gml-store.vercel.app/">
+<meta property="og:type" content="website">
+
+<!-- Google Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "GML Store",
+  "url": "https://gml-store.vercel.app/",
+  "description": "FiveM marketplace for scripts and digital products"
+}
+</script>
 
 <style>
 *{
@@ -19,7 +39,6 @@ body{
   overflow-x:hidden;
 }
 
-/* BACKGROUND */
 canvas{
   position:fixed;
   top:0;
@@ -27,7 +46,6 @@ canvas{
   z-index:-2;
 }
 
-/* TOP BAR */
 nav{
   display:flex;
   justify-content:space-between;
@@ -48,7 +66,6 @@ nav a{
   text-decoration:none;
 }
 
-/* HERO */
 .hero{
   padding:100px 60px;
   display:flex;
@@ -77,14 +94,12 @@ nav a{
   border-radius:15px;
 }
 
-/* SECTION TITLE */
 .section-title{
   padding:0 60px;
   font-size:22px;
   color:#aaa;
 }
 
-/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
@@ -92,7 +107,6 @@ nav a{
   padding:50px 60px;
 }
 
-/* CARD */
 .card{
   background:rgba(255,0,0,0.05);
   border:1px solid rgba(255,0,0,0.2);
@@ -144,7 +158,6 @@ nav a{
   font-size:12px;
 }
 
-/* BUTTON */
 button{
   margin-top:15px;
   width:100%;
@@ -162,7 +175,6 @@ button:hover{
   opacity:0.8;
 }
 
-/* INFO BAR */
 .info{
   display:flex;
   justify-content:space-around;
@@ -185,15 +197,15 @@ button:hover{
 
 <section class="hero">
   <div>
-    <h2>GEMELO FiveM <span>Premium</span><br>Web Marketplace</h2>
+    <h2>GML FiveM <span>Premium</span><br>Web Marketplace</h2>
     <p>Instant delivery via Discord ticket system.</p>
   </div>
 
   <div class="hero-box">
     ⚡ Fast Delivery<br>
     🔐 Secure Orders<br>
-    🔐 Gemelo Protection ON<br>
-    🛠 24/7 Support
+    🛠 24/7 Support<br>
+    🚀 Instant Access
   </div>
 </section>
 
@@ -209,7 +221,7 @@ button:hover{
         <div class="price">39,99$ <span class="old">49,99$</span></div>
         <div class="badge">Limited Stock</div>
       </div>
-      <button onclick="ticket('redENGINE Spoofer','39.99$')">ABRIR TICKET</button>
+      <button onclick="ticket('redENGINE Spoofer','39.99$')">OPEN TICKET</button>
     </div>
   </div>
 
@@ -221,7 +233,7 @@ button:hover{
         <div class="price">5$</div>
         <div class="badge">Hot Deal</div>
       </div>
-      <button onclick="ticket('Cuentas Pack','5$')">ABRIR TICKET</button>
+      <button onclick="ticket('Cuentas Pack','5$')">OPEN TICKET</button>
     </div>
   </div>
 
@@ -233,19 +245,19 @@ button:hover{
         <div class="price">50$</div>
         <div class="badge">Pro Service</div>
       </div>
-      <button onclick="ticket('Shark Menu','50$')">ABRIR TICKET</button>
+      <button onclick="ticket('Shark Menu','50$')">OPEN TICKET</button>
     </div>
   </div>
 
-    <div class="card">
+  <div class="card">
     <img src="https://r2.fivemanage.com/N2yv9eU3yUYJTgpoZhvm7/gen_spoofer.jpg">
     <div class="content">
       <div>
         <h3>Tiago Spoofer</h3>
-        <div class="price">For This Price On Discord</div>
+        <div class="price">Discord Price</div>
         <div class="badge">Pro Service</div>
       </div>
-      <button onclick="ticket('Tiago Spoofer','Ticket')">ABRIR TICKET</button>
+      <button onclick="ticket('Tiago Spoofer','Ticket')">OPEN TICKET</button>
     </div>
   </div>
 
@@ -253,32 +265,28 @@ button:hover{
 
 <div class="info">
   <div>⚡ Instant Tickets</div>
-  <div>🔐 Discord Verified Orders</div>
+  <div>🔐 Secure Orders</div>
   <div>🛠 Support 24/7</div>
-  <div>🔐 Gemelo Protection ON</div>
+  <div>🚀 GML Store</div>
 </div>
 
 <script>
 
 function ticket(product, price){
-
   const msg = `
-🎟 NEW ORDER REQUEST
+🎟 NEW ORDER
 
 Product: ${product}
 Price: ${price}
 
-Please open ticket for purchase.
+Open ticket to complete purchase.
 `;
 
   navigator.clipboard.writeText(msg);
-
   window.open("https://discord.gg/r8zeRXAeDb","_blank");
-
-  alert("Copied → paste in Discord tickets");
+  alert("Copied to clipboard");
 }
 
-/* BACKGROUND ANIMATION */
 const canvas=document.getElementById("bg");
 const ctx=canvas.getContext("2d");
 
